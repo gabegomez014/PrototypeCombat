@@ -5856,8 +5856,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282225420}
-  m_LocalRotation: {x: 0.42415538, y: -2.0610086e-25, z: 9.653246e-26, w: 0.9055895}
-  m_LocalPosition: {x: 12.22, y: 6, z: -5}
+  m_LocalRotation: {x: 0.35172668, y: 0.000000016106942, z: -0.0000000060519434, w: 0.93610275}
+  m_LocalPosition: {x: 12.22, y: 7, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25701,7 +25701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 6, z: -5}
+  m_FollowOffset: {x: 0, y: 7, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -27118,8 +27118,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357399460}
-  m_LocalRotation: {x: 0.42415538, y: -2.0610086e-25, z: 9.653246e-26, w: 0.9055895}
-  m_LocalPosition: {x: 6.51, y: 5, z: 5}
+  m_LocalRotation: {x: 0.35172668, y: 0.000000016106942, z: -0.0000000060519434, w: 0.93610275}
+  m_LocalPosition: {x: 6.51, y: 6, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27156,7 +27156,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.4467006, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -44487,6 +44487,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7973348612052162506, guid: d43fadbc95e7846c1b9643c1f82b7984,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d557cb41b70ce4ba6b9355a22f96aeee, type: 2}
+    - target: {fileID: 7973348612052162506, guid: d43fadbc95e7846c1b9643c1f82b7984,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d557cb41b70ce4ba6b9355a22f96aeee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d43fadbc95e7846c1b9643c1f82b7984, type: 3}
 --- !u!1001 &6101085922126877361
