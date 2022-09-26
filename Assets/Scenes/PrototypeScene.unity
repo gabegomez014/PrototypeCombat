@@ -53736,7 +53736,7 @@ PrefabInstance:
     - target: {fileID: 6101085921862565989, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.9
+      value: 14.11
       objectReference: {fileID: 0}
     - target: {fileID: 6101085921862565989, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
@@ -53746,7 +53746,7 @@ PrefabInstance:
     - target: {fileID: 6101085921862565989, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.95
+      value: -5.33
       objectReference: {fileID: 0}
     - target: {fileID: 6101085921862565989, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
@@ -53786,7 +53786,17 @@ PrefabInstance:
     - target: {fileID: 6101085921862566014, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
       propertyPath: m_Name
-      value: Capsule
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: within_range
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b8f5beae24347feb55f2ba93227e86, type: 3}
