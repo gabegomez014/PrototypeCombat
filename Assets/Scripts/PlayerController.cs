@@ -11,9 +11,16 @@ public class PlayerController : MonoBehaviour
     public float speed_rot;
     [Header("Movement speed during jump")]
     public float speed_move;
+    [Header("Time available for combo")]
+    public int term;
+
     public bool isJump;
     Quaternion rot;
     bool isRun;
+
+    int clickCount;
+    float timer;
+    bool isTimer;
 
     Vector3 startingMousePos;
 
@@ -32,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
         if (!isJump) {
             Jump();
+            Attack();
         }
     }
 
@@ -156,5 +164,76 @@ public class PlayerController : MonoBehaviour
     void JumpEnd()
     {
         isJump = false;
+    }
+
+    void Attack()
+    {
+        
+        if (isTimer)
+        {
+            timer += Time.deltaTime;
+        }
+
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch (clickCount)
+            {
+                
+                case 0:
+                    
+                    anim.SetTrigger("Attack1");
+                    
+                    isTimer = true;
+                    
+                    clickCount++;
+                    break;
+
+                
+                case 1:
+                    
+                    if (timer <= term)
+                    {                        
+                        anim.SetTrigger("Attack2");
+                        
+                        clickCount++;
+                    }
+
+                    
+                    else
+                    {                        
+                        anim.SetTrigger("Attack1");
+                        
+                        clickCount = 1;
+                    }
+
+                    
+                    timer = 0;
+                    break;
+
+                
+                case 2:
+                    
+                    if (timer <= term)
+                    {                        
+                        anim.SetTrigger("Attack3");
+                        
+                        clickCount = 0;
+                        
+                        isTimer = false;
+                    }
+
+                    
+                    else
+                    {                        
+                        anim.SetTrigger("Attack1");
+                        
+                        clickCount = 1;
+                    }
+                
+                    timer = 0;
+                    break;
+            }
+        }
     }
 }
