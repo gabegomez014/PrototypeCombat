@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1587226192}
-  m_IndirectSpecularColor: {r: 0.029190823, g: 0.042615782, b: 0.031795923, a: 1}
+  m_IndirectSpecularColor: {r: 0.029213836, g: 0.04262086, b: 0.031811815, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20565,7 +20565,7 @@ MonoBehaviour:
   ratio_Close: 85
   ratio_HalfClose: 20
   ratio_Open: 0
-  timeBlink: 0.4
+  timeBlink: 2.41
   threshold: 0.3
   interval: 3
 --- !u!114 &619329693
@@ -29571,9 +29571,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1026107174}
+  - component: {fileID: 1026107175}
   m_Layer: 7
   m_Name: Weapon_DualBlade_R
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29595,6 +29596,22 @@ Transform:
   m_Father: {fileID: 608293359}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 177.449, z: 0}
+--- !u!54 &1026107175
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026107173}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &1027393845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43797,9 +43814,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693641100}
+  - component: {fileID: 1693641101}
   m_Layer: 7
   m_Name: Weapon_DualBlade_L
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43821,6 +43839,22 @@ Transform:
   m_Father: {fileID: 608292911}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 177.449, z: 0}
+--- !u!54 &1693641101
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693641099}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &1695071987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53548,6 +53582,28 @@ Transform:
   m_Father: {fileID: 18068742}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126785236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6101085921862566014, guid: a7b8f5beae24347feb55f2ba93227e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101085922126877361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2126785242
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126785236}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &2128686328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53790,13 +53846,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 608293095}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
       propertyPath: within_range
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
       propertyPath: movementSpeed
-      value: 2
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: pushBackForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b8f5beae24347feb55f2ba93227e86, type: 3}
