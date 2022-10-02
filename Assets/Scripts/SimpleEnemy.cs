@@ -48,6 +48,10 @@ public class SimpleEnemy : MonoBehaviour
         
         if (collision.collider.transform.tag == "Weapon")
         {
+            ContactPoint contact = collision.GetContact(0);
+            WeaponController weapon = collision.collider.transform.parent.GetComponent<WeaponController>();
+            GameObject hitVFX = Instantiate(weapon.GetHitVFX(), contact.point, Quaternion.identity);
+            Destroy(hitVFX, 3);
             _rb.velocity = new Vector3(0f, 0f, 0f);
             _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
             _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
