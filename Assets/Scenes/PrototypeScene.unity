@@ -7613,6 +7613,37 @@ Transform:
   m_Father: {fileID: 1716016531}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &372305952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372305953}
+  m_Layer: 0
+  m_Name: EnemyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372305953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372305952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1304015374}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &372630566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29626,7 +29657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVFX: {fileID: 173668, guid: 5d476fdbb7a864646aa6a217aa4e6166, type: 3}
-  damage: 1
+  damage: 2
 --- !u!1001 &1027393845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35560,6 +35591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304015374}
+  - component: {fileID: 1304015375}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -35583,9 +35615,26 @@ Transform:
   - {fileID: 1963339184}
   - {fileID: 1422510949}
   - {fileID: 1173359842}
+  - {fileID: 372305953}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304015375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304015373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d46dab0e52744b1c8c03a5dd8818878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6101085921862566014, guid: a7b8f5beae24347feb55f2ba93227e86, type: 3}
+  maxEnemies: 5
+  spawnCoolDown: 2
+  _enemyHolder: {fileID: 372305953}
 --- !u!1001 &1314056679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43884,7 +43933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVFX: {fileID: 173668, guid: 5d476fdbb7a864646aa6a217aa4e6166, type: 3}
-  damage: 1
+  damage: 2
 --- !u!1001 &1695071987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53612,28 +53661,6 @@ Transform:
   m_Father: {fileID: 18068742}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2126785236 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6101085921862566014, guid: a7b8f5beae24347feb55f2ba93227e86,
-    type: 3}
-  m_PrefabInstance: {fileID: 6101085922126877361}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &2126785242
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126785236}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!1001 &2128686328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53876,53 +53903,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 608293095}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: deathVFX
-      value: 
-      objectReference: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: stunTime
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
       propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: acceleration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: within_range
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: pushBackForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 20
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b8f5beae24347feb55f2ba93227e86, type: 3}
