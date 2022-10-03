@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1587226192}
-  m_IndirectSpecularColor: {r: 0.029213836, g: 0.04262086, b: 0.031811815, a: 1}
+  m_IndirectSpecularColor: {r: 0.029190823, g: 0.042615782, b: 0.031795923, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -422,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 18068741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 86.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 226682836}
@@ -5888,8 +5888,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282225420}
-  m_LocalRotation: {x: 0.35172665, y: 0, z: 0, w: 0.93610275}
-  m_LocalPosition: {x: 12.03, y: 6.9700003, z: -15.92}
+  m_LocalRotation: {x: 0.2149104, y: 0, z: 0, w: 0.9766338}
+  m_LocalPosition: {x: 12.03, y: 3.67, z: -15.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29572,6 +29572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026107174}
   - component: {fileID: 1026107175}
+  - component: {fileID: 1026107176}
   m_Layer: 7
   m_Name: Weapon_DualBlade_R
   m_TagString: Weapon
@@ -29612,6 +29613,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1026107176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026107173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d52a0da64ca042a8a2271b8c2c7bac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitVFX: {fileID: 173668, guid: 5d476fdbb7a864646aa6a217aa4e6166, type: 3}
+  damage: 1
 --- !u!1001 &1027393845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34811,7 +34826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 7, z: -8}
+  m_FollowOffset: {x: 0, y: 3.7, z: -8}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -36213,8 +36228,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357399460}
-  m_LocalRotation: {x: 0.35172665, y: -0, z: -0, w: 0.93610275}
-  m_LocalPosition: {x: 6.3199997, y: 5.9700003, z: -5.92}
+  m_LocalRotation: {x: 0.2149104, y: -0, z: -0, w: 0.9766338}
+  m_LocalPosition: {x: 6.3199997, y: 2.67, z: -5.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43815,6 +43830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693641100}
   - component: {fileID: 1693641101}
+  - component: {fileID: 1693641102}
   m_Layer: 7
   m_Name: Weapon_DualBlade_L
   m_TagString: Weapon
@@ -43855,6 +43871,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1693641102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693641099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d52a0da64ca042a8a2271b8c2c7bac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitVFX: {fileID: 173668, guid: 5d476fdbb7a864646aa6a217aa4e6166, type: 3}
+  damage: 1
 --- !u!1001 &1695071987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53851,13 +53881,38 @@ PrefabInstance:
       objectReference: {fileID: 608293095}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
+      propertyPath: deathVFX
+      value: 
+      objectReference: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: stunTime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
+      propertyPath: acceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
+        type: 3}
       propertyPath: within_range
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
       propertyPath: movementSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6889577848821587961, guid: a7b8f5beae24347feb55f2ba93227e86,
         type: 3}
