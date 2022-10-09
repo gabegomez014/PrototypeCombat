@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (_currentCoolDown <= 0 && _enemyHolder.childCount < maxEnemies) {
             Transform randomSpawnPoint = this.transform.GetChild(Random.Range(0,3));
-            Instantiate(enemy, randomSpawnPoint.position, Quaternion.identity);
+            Instantiate(enemy, randomSpawnPoint.position, Quaternion.identity, _enemyHolder);
             _currentCoolDown = spawnCoolDown;
         } else {
             _currentCoolDown -= Time.deltaTime;

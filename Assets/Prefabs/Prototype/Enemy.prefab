@@ -118,7 +118,7 @@ MonoBehaviour:
   within_range: 0.3
   pushBackForce: 5
   stunTime: 0.6
-  maxHealth: 10
+  maxHealth: 6
   deathVFX: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
 --- !u!54 &2126785242
 Rigidbody:

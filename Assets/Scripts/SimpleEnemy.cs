@@ -20,10 +20,13 @@ public class SimpleEnemy : MonoBehaviour
     private int _currentHealth;
     private bool _stunned;
 
+    private float _currentStunTime;
+
     void Start() {
         _playerChar = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _rb = GetComponent<Rigidbody>();
         _currentHealth = maxHealth;
+        _currentStunTime = 0;
     }
 
     // Update is called once per frame
@@ -43,9 +46,13 @@ public class SimpleEnemy : MonoBehaviour
             if(dist >= within_range && _rb.velocity.magnitude < maxSpeed){    
                 _rb.AddForce(transform.forward * acceleration);
             }
+        } else if (_currentStunTime > 0) {
+            _currentStunTime -= Time.deltaTime;
+        } else if (_currentStunTime <= 0) {
+            _stunned = false;
         }
 
-        if (_currentHealth == 0) {
+        if (_currentHealth == 0 || this.transform.position.y < -1) {
             Death();
         }
 
@@ -68,22 +75,18 @@ public class SimpleEnemy : MonoBehaviour
 
     private void Hit(Collision weaponCollider) {
         if (!_stunned) {
-            StartCoroutine(StunLock());
+            _stunned = true;
+            _currentStunTime = stunTime;
+            // StartCoroutine(StunLock());
+            _rb.velocity = new Vector3(0f, 0f, 0f);
+            _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+            _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
         }
         ContactPoint contact = weaponCollider.GetContact(0);
         WeaponController weapon = weaponCollider.collider.transform.parent.GetComponent<WeaponController>();
         GameObject hitVFX = Instantiate(weapon.GetHitVFX(), contact.point, Quaternion.identity);
         Destroy(hitVFX, 3);
-        _rb.velocity = new Vector3(0f, 0f, 0f);
-        _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
-        _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
 
         _currentHealth -= weapon.GetDamage();
-    }
-
-    IEnumerator StunLock() {
-        _stunned = true;
-        yield return new WaitForSeconds(stunTime);
-        _stunned = false;
     }
 }
