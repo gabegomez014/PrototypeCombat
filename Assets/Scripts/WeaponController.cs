@@ -13,4 +13,8 @@ public class WeaponController : MonoBehaviour
     public int GetDamage() {
         return damage;
     }
+
+    public Animator GetCharacterAnimator() {
+        return GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
 }

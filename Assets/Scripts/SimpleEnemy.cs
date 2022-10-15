@@ -74,19 +74,26 @@ public class SimpleEnemy : MonoBehaviour
     }
 
     private void Hit(Collision weaponCollider) {
-        if (!_stunned) {
-            _stunned = true;
-            _currentStunTime = stunTime;
-            // StartCoroutine(StunLock());
-            _rb.velocity = new Vector3(0f, 0f, 0f);
-            _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
-            _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
-        }
+
         ContactPoint contact = weaponCollider.GetContact(0);
         WeaponController weapon = weaponCollider.collider.transform.parent.GetComponent<WeaponController>();
-        GameObject hitVFX = Instantiate(weapon.GetHitVFX(), contact.point, Quaternion.identity);
-        Destroy(hitVFX, 3);
+        Animator animator = weapon.GetCharacterAnimator();
+        string clipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        
+        if(clipName.Contains("Attack")) {
+            if (!_stunned) {
+                _stunned = true;
+                _currentStunTime = stunTime;
+                // StartCoroutine(StunLock());
+                _rb.velocity = new Vector3(0f, 0f, 0f);
+                _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+                _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
+            }
+            
+            GameObject hitVFX = Instantiate(weapon.GetHitVFX(), contact.point, Quaternion.identity);
+            Destroy(hitVFX, 3);
 
-        _currentHealth -= weapon.GetDamage();
+            _currentHealth -= weapon.GetDamage();
+        }
     }
 }
