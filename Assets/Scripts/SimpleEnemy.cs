@@ -17,16 +17,21 @@ public class SimpleEnemy : MonoBehaviour
 
     private Transform _playerChar;
 
+    private Animator _animator;
+
     private int _currentHealth;
     private bool _stunned;
+    private string _previousAttackName;
 
     private float _currentStunTime;
 
     void Start() {
         _playerChar = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _currentHealth = maxHealth;
         _currentStunTime = 0;
+        _previousAttackName = "";
     }
 
     // Update is called once per frame
@@ -35,6 +40,7 @@ public class SimpleEnemy : MonoBehaviour
         if (!_stunned) {
             if (_playerChar != null)
             {
+                _animator.SetBool("Move", true);
                 var lookPos = _playerChar.position - transform.position;
                 lookPos.y = 0;
                 var rotationAngle = Quaternion.LookRotation(lookPos); // we get the angle has to be rotated
@@ -50,6 +56,8 @@ public class SimpleEnemy : MonoBehaviour
             _currentStunTime -= Time.deltaTime;
         } else if (_currentStunTime <= 0) {
             _stunned = false;
+            _animator.SetBool("Stunned", false);
+            _previousAttackName = "";
         }
 
         if (_currentHealth == 0 || this.transform.position.y < -1) {
@@ -80,8 +88,10 @@ public class SimpleEnemy : MonoBehaviour
         Animator animator = weapon.GetCharacterAnimator();
         string clipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
         
-        if(clipName.Contains("Attack")) {
+        if(clipName.Contains("Attack") && clipName != _previousAttackName) {
+            _previousAttackName = clipName;
             if (!_stunned) {
+                _animator.SetBool("Stunned", true);
                 _stunned = true;
                 _currentStunTime = stunTime;
                 // StartCoroutine(StunLock());
@@ -89,7 +99,7 @@ public class SimpleEnemy : MonoBehaviour
                 _rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                 _rb.AddForce(-transform.forward * pushBackForce, ForceMode.VelocityChange);
             }
-            
+
             GameObject hitVFX = Instantiate(weapon.GetHitVFX(), contact.point, Quaternion.identity);
             Destroy(hitVFX, 3);
 
